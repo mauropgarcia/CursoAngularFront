@@ -1,0 +1,19 @@
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{nome | uppercase}}
+          <span class="badge badge-success" *ngIf="promocao; else elseBlock">
+            Promoção
+          </span>
+          <ng-template #elseBlock>
+            <span class="badge badge-danger">Que pena ... sem promoção</span>
+          </ng-template>
+        </h4>
+        <img [src]="foto" class="card-img-top" style="width:50%">
+        <p class="card-text">
+          Identificação: {{id | number:'2.0-0'}}<br>
+          Data da validade: {{validade | date: 'shortDate'}}
+        </p>
+        <a href="#" class="card-link">{{preco | currency:'BRL'}}</a>
+        <span *ngIf="promocao;" class="float-right text-danger"><i class="fa fa-clock-o fa-spin"></i> por tempo limitado</span>
+      </div>
+    </div>

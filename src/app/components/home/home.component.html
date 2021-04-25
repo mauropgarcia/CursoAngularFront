@@ -1,0 +1,51 @@
+<h1>Seja bem vindo ao APP da ETEc Minas de Itapeva</h1>
+<!-- <div class="row">
+  <div class="col">
+    <img src="assets/img/cps.png" class="img-fluid">
+  </div>
+  <div class="col" style="text-align: center;">
+    <img src="assets/img/bat.webp" style="width: 70%;" class="img-fluid">
+  </div>
+  <div class="col">
+    <img src="assets/img/crud.png" class="img-fluid">
+  </div>
+</div> -->
+<div class="row">
+  <div class="col-lg-4 mt-4" *ngFor="let prod of listaProdutos">
+    <!-- <h4 class="text-danger">{{Anuncio}}</h4> -->
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{prod.nome | uppercase}}
+          <span class="badge badge-success" *ngIf="prod.promocao; else elseBlock">
+            Promoção
+          </span>
+          <!-- <ng-template #elseBlock>
+            <span class="badge badge-danger">Que pena ... sem promoção</span>
+          </ng-template> -->
+        </h4>
+        <img [src]="prod.foto" class="card-img-top" style="width:50%">
+        <p class="card-text">
+          Identificação: {{prod.id | number:'2.0-0'}}<br>
+          Data da validade: {{prod.validade | date: 'shortDate'}}
+        </p>
+        <a href="#" class="card-link">{{prod.preco | currency:'BRL'}}</a>
+        <span *ngIf="prod.promocao;" class="float-right text-danger"><i class="fa fa-clock-o fa-spin"></i> por tempo
+          limitado</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-4 mt-4">
+    <app-card-produto [foto]="Foto" [id]="IdProduto" [nome]="NomeProduto" [preco]="PrecoProduto"
+      [validade]="DataValidade">
+    </app-card-produto>
+  </div>
+  <div class="col-lg-4 mt-4">
+    <app-card-produto foto="assets/img/ionic.fw.png" id="115" nome="Curso de Ionic" preco="1265" validade="10/03/1973">
+    </app-card-produto>
+  </div>
+
+</div>
