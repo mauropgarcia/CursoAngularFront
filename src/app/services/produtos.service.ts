@@ -9,7 +9,7 @@ import { EMPTY, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProdutosService {
-  private URL:string = environment.URL;
+  private URL:string = 'https://my-json-server.typicode.com/mauropgarcia/CursoAngularBack/produtos';
   constructor(private http: HttpClient, private toastr:ToastrService) { }
 
   buscarTodos(): Observable<IProduto[]>{
